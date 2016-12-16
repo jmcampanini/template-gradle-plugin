@@ -1,0 +1,22 @@
+plugins {
+	id 'com.palantir.git-version' version '0.5.2'
+	id 'groovy'
+	id 'idea'
+	id 'eclipse'
+}
+
+group 'your.group.name'
+version gitVersion()
+
+repositories {
+	jcenter()
+}
+
+dependencies {
+	compile gradleApi()
+
+	testCompile gradleTestKit()
+	testCompile('org.spockframework:spock-core:1.1-groovy-2.4-rc-3') {
+		exclude module: 'groovy-all'
+	}
+}
